@@ -20,8 +20,12 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: تجهيز Android
+      - name: تجهيز Android SDK
         uses: android-actions/setup-android@v3
+
+      - name: تثبيت أدوات Android SDK
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: بناء التطبيق
         run: |
